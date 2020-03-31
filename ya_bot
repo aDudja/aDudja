@@ -21,6 +21,7 @@ if (document.getElementsByClassName('mini-suggest__button')[0] != undefined  && 
         i++;
         if (i==searchWord.length) {
             clearInterval(timerId);
+            document.getElementsByClassName('mini-suggest__button')[0].target='_self';
             document.getElementsByClassName('mini-suggest__button')[0].click();
         }
     },getRandom(50, 1000));
@@ -32,6 +33,7 @@ else if (location.host == "yandex.ru"){
     for (let i=0; i<links.length; i++){
         if (links[i].host.indexOf('xn----7sbab5aqcbiddtdj1e1g.xn--p1ai') != -1){
             flag = false;
+            links[i].target='_self';
             links[i].click();
             break;
         }
@@ -48,6 +50,7 @@ else {
     setInterval(()=>{
         let index = getRandom(0,links.length);
         console.log(links[index]);
+        links[i].target='_self';
         links[index].click();
         if (getRandom(0,101)<=30) location.href = "https://yandex.ru/";
     },getRandom(3000, 8000));
