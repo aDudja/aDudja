@@ -1,0 +1,38 @@
+let date = new Date();
+let year = date.getFullYear();
+
+function getTrinityDate(year){
+      let easterDay;
+      let easterMonth;
+      let trinityDay;
+      let trinityMonth;
+  
+      // Пасха
+  
+      let d = ((19*(year%19) + 15)%30);
+      let f = (((2*(year%4) + 4*(year%7) + 6*d + 6)%7 + d));
+      if (f<=26) {
+        easterDay = 4+f;
+        easterMonth= 3;
+      }
+      else {
+        easterDay = f-26;
+        easterMonth= 4;
+      }
+        
+      // Троица    
+  
+      if (easterMonth == 3 && easterDay<=12) {
+        trinityMonth = 4;
+        trinityDay = easterDay + 29;
+      } else if (easterMonth == 3 && 13<=easterDay<=30 ){
+        trinityMonth = 5;
+        trinityDay = easterDay - 12 ;
+      } else {
+        trinityMonth = 5;
+        trinityDay = easterDay + 18 ;
+      }
+      return new Date(year,trinityMonth,trinityDay);
+    }
+
+console.log(getTrinityDate(year).toString());
