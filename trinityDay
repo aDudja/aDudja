@@ -24,7 +24,7 @@ function getTrinityDate(year){
   
       if (easterMonth == 3 && easterDay<=12) {
         trinityMonth = 4;
-        trinityDay = easterDay + 29;
+        trinityDay = easterDay + 19;
       } else if (easterMonth == 3 && 13<=easterDay<=30 ){
         trinityMonth = 5;
         trinityDay = easterDay - 12 ;
